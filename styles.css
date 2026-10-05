@@ -1,0 +1,52 @@
+#edm-quick-fill {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  background: #eef6ff;
+  border: 1px solid #2d89ef;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 8px 0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  z-index: 99999;
+  max-width: 100%;
+}
+#edm-quick-fill.edm-floating {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+#edm-quick-fill label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  color: #0b5394;
+}
+#edm-quick-fill .edm-qf-title {
+  font-weight: bold;
+  color: #0b5394;
+}
+#edm-quick-fill select {
+  min-width: 0;
+  max-width: 220px;
+  padding: 4px 6px;
+}
+#edm-quick-fill #edm-satir { max-width: 260px; }
+#edm-quick-fill button {
+  background: #2d89ef;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+#edm-quick-fill button:hover { background: #1b5fb3; }
+#edm-quick-fill #edm-sifirla { background: #888; }
+#edm-quick-fill #edm-yenile { background: #eee; color: #333; border: 1px solid #ccc; }
+#edm-quick-fill #edm-not { background: #0a7a00; }
+#edm-quick-fill #edm-msg { color: #0a7a00; font-weight: bold; }
+#edm-quick-fill #edm-preview { flex-basis: 100%; }

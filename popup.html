@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<style>
+body { width: 440px; font-family: Arial; font-size: 13px; padding: 10px; }
+h3 { margin: 0 0 8px 0; }
+.apply-box { background:#eef6ff; border:1px solid #2d89ef; border-radius:8px; padding:8px; margin-bottom:10px; }
+.apply-box select { width:100%; padding:6px; margin:4px 0; }
+.apply-box button { width:100%; padding:8px; background:#2d89ef; color:#fff; border:none; border-radius:6px; cursor:pointer; font-weight:bold; }
+#status { margin-top:6px; font-size:12px; white-space:pre-wrap; }
+.ok { color:#0a7a00; } .err { color:#b00000; }
+.row { border: 1px solid #ddd; border-radius: 8px; padding: 8px; margin-bottom: 8px; }
+label { display:block; margin-top:6px; font-weight:bold; }
+input, select { width: 100%; padding: 4px; box-sizing: border-box; }
+.grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:6px; }
+button { margin-top:8px; padding:6px 10px; cursor:pointer; }
+.primary { background:#2d89ef; color:#fff; border:none; border-radius:6px; }
+.danger { background:#eee; border:1px solid #ccc; border-radius:6px; }
+textarea { width:100%; height:90px; font-size:11px; }
+.small { color:#555; font-size:12px; }
+details { margin-top:10px; }
+</style>
+</head>
+<body>
+<h3>EDM Hızlı Ürün</h3>
+<div class="apply-box">
+  <label>Tip</label>
+  <select id="tip">
+    <option value="KR">KR - KARE</option>
+    <option value="DG">DG - PRİZMA</option>
+    <option value="KLT">KLT - KİLİT-8</option>
+    <option value="KL">KL - KALDIRIM-6</option>
+  </select>
+  <label>Renk</label>
+  <select id="renk">
+    <option value="G">Gri (280 TL)</option>
+    <option value="S">Siyah (280 TL)</option>
+    <option value="B">Beyaz (330 TL)</option>
+    <option value="K">Kırmızı (280 TL)</option>
+  </select>
+  <label>Satır</label>
+  <div style="display:flex; gap:6px;">
+    <select id="satir" style="flex:1;"></select>
+    <button id="yenile" type="button" style="width:auto; margin-top:4px;">↻</button>
+  </div>
+  <div style="display:flex; gap:6px; margin-top:6px;">
+    <button id="uygula" style="flex:3;">Uygula → Seçili Satıra Yaz</button>
+    <button id="sifirla" type="button" style="flex:1; background:#888;">Sıfırla</button>
+  </div>
+  <button id="notyaz" type="button" style="background:#0a7a00;">Notlara Şirket + IBAN Yaz</button>
+  <div id="preview" class="small" style="margin-top:6px; font-weight:bold;"></div>
+  <div id="status"></div>
+</div>
+
+<details>
+<summary><b>Not Ayarları (şirket + IBAN)</b></summary>
+<div class="small">Uygula'ya her basışta Notlar alanının ilk satırı korunur, 2. satıra şirket, 3. satıra IBAN yazılır. Bilgiler yalnızca bu tarayıcıda saklanır.</div>
+<label>Şirket unvanı</label>
+<input id="notesCompany" placeholder="Örn: Örnek Yapı Malzemeleri Ltd. Şti.">
+<label>IBAN</label>
+<input id="notesIban" placeholder="Örn: TR00 0000 0000 0000 0000 0000 00">
+</details>
+
+<details>
+<summary><b>Fiyat / Ürün Tanımları (gerekirse düzenle)</b></summary>
+<div class="small">Beyaz 330, diğerleri 280 varsayılan. Değişiklik otomatik kaydedilir.</div>
+<div id="list"></div>
+<button id="add" class="primary">+ Yeni Ürün</button>
+<h4>Toplu (JSON)</h4>
+<textarea id="json"></textarea>
+<br>
+<button id="export">Kopyala</button>
+<button id="import">İçe Aktar</button>
+</details>
+
+<details>
+<summary><b>Çalışmazsa: Satır Bilgisini Getir</b></summary>
+<div class="small">Fatura sayfasında bu butona bas, çıkan metni issue olarak bildir.</div>
+<button id="inspect">Satır Bilgisini Getir</button>
+<textarea id="debug" placeholder="Buraya satır bilgisi gelecek"></textarea>
+</details>
+
+<script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Chrome extension publish artifacts
+*.zip
+*.crx
+*.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies (none required, placeholder)
+node_modules/
